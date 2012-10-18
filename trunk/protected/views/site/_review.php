@@ -42,7 +42,7 @@
   </p>
   
   <?php
-  $comments = $album->comments();
+  $comments = $album->comments;
   if(!empty($comments)): ?>
   <div class="albumComments">
     <p class="albumCommentsHeader">

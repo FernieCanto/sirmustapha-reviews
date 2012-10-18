@@ -11,7 +11,24 @@ class SiteController extends CController {
         $updatedItems[$item['artist']][$item['album']] = true;
     }
     
-    $artists = Artist::model()->available()->unrelated()->findAll();
+    $artists = Artist::model()
+      ->available()
+      ->unrelated()
+      ->with(array(
+          "albums"  => array(
+              "scopes"  => "available",
+          ),
+          "relatedArtists"  => array(
+              "scopes"  => "available",
+              "with"    => array(
+                  "albums"  => array(
+                      "alias"   => "r_albums",
+                      "scopes"  => "avaliable",
+                  ),
+              ),
+          ),
+    ))->findAll();
+    
     $this->render("index", array('recentUpdates'  => $recentUpdates,
                                  'updatedItems'   => $updatedItems,
                                  'artists'        => $artists));
@@ -32,7 +49,24 @@ class SiteController extends CController {
   }
   
   public function actionReviews() {
-    $artist = Artist::model()->with('maxAlbumRating')->byReference($_GET['artist'])->find();
+    $artist = Artist::model()
+      ->with(array(
+          "maxAlbumRating",
+          "albums"          => array(
+              "scopes"          => array("available", "reviewed"),
+          ),
+          "relatedArtists"  => array(
+              "scopes"          => "available",
+              "with"            => array(
+                  "albums"          => array(
+                      "alias"           => "r_albums",
+                      "scopes"          => array("available", "reviewed"),
+                  ),
+              ),
+          ),
+    ))->byReference($_GET['artist'])
+      ->find();
+    
     if(!is_null($artist))
       $this->render("reviews", array('artist' => $artist));
     else
