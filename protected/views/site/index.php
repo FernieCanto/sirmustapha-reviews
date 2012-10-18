@@ -52,7 +52,10 @@
 
 <div id="reviews">
   <h2 class="page-item"><span>The Reviews:</span></h2>
-  <? foreach($artists as $artist): //var_dump($artist->albums); exit; ?>
+  <?
+  foreach($artists as $artist) { 
+    /* @var $artist Artist */
+    ?>
     <div class="artist-link <?=(isset($updatedItems[$artist->id]) ? 'new' : null)?>">
       <?=CHtml::link($artist->nameToUpper(), array('reviews/'.$artist->reference), array('class' => 'artist'))?>
       <?=(isset($updatedItems[$artist->id])
@@ -61,33 +64,38 @@
     </div>
     <div class="albums">
      (<?
-        $first = true;
-        foreach($artist->albums('albums:available') as $album):
-          ($first ? $first = false : print('; '));
-          if(is_null($album->rating))
-            echo $album->title;
+        $list = array();
+        foreach($artist->albums as $album) {
+          if(!$album->reviewed)
+            $list[] = $album->title;
           else
-            echo CHtml::link($album->title,
-                             array('reviews/'.$artist->reference.'#'.$album->reference),
-                             (isset($updatedItems[$artist->id][$album->id]) ? array('class' => 'new') : null));
-        endforeach;
+            $list[] = CHtml::link(
+              $album->title,
+              array('reviews/'.$artist->reference.'#'.$album->reference),
+              (isset($updatedItems[$artist->id][$album->id]) ? array('class' => 'new') : null)
+            );
+        }
+        echo implode("; ", $list);
         
-        foreach($artist->relatedArtists('relatedArtists:available') as $relatedArtist):
+        foreach($artist->relatedArtists as $relatedArtist) {
           echo " &mdash; ".$relatedArtist->nameToUpper().": ";
-          $first = true;
+          $list = array();
 
-          foreach($relatedArtist->albums('albums:available') as $album):
-            ($first ? $first = false : print('; '));
-            if(is_null($album->rating))
-              echo $album->title;
+          foreach($relatedArtist->albums as $album) {
+            if(!$album->reviewed)
+              $list[] = $album->title;
             else
-              echo CHtml::link($album->title,
-                               array('reviews/'.$artist->reference.'#'.$album->reference),
-                               (isset($updatedItems[$artist->id][$album->id]) ? array('class' => 'new') : null));
-          endforeach;
-        endforeach;
+              $list[] = CHtml::link(
+                $album->title,
+                array('reviews/'.$artist->reference.'#'.$album->reference),
+                (isset($updatedItems[$relatedArtist->id][$album->id]) ? array('class' => 'new') : null)
+              );
+          }
+          echo implode("; ", $list);
+        }
       ?>)
     </div>
 
-  <? endforeach; ?>
+  <?
+  } ?>
 </div>

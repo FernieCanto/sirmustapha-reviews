@@ -1,4 +1,20 @@
 <?php
+/**
+ * @property-read boolean reviewed
+ * 
+ * @property-read Artist $artist
+ * @property-read Disc[] $discs
+ * @property-read Rating $rating
+ * @property-read Comment[] $comments
+ * 
+ * @method Artist artist()
+ * @method Disc[] discs()
+ * @method Rating rating()
+ * @method Comment[] comments()
+ * 
+ * @method Album reviewed()
+ * @method Album available()
+ */
 class Album extends CActiveRecord {
   public static function model($className=__CLASS__) {
     return parent::model($className);
@@ -10,26 +26,33 @@ class Album extends CActiveRecord {
   
   public function relations() {
     return array(
-      'artist'    => array(self::BELONGS_TO, 'Artist', 'artist'),
-      'discs'     => array(self::HAS_MANY, 'Disc', 'album'),
-      'rating'    => array(self::BELONGS_TO, 'Rating', 'rating'),
-      'comments'  => array(self::HAS_MANY, 'Comment', 'album'),
+        'artist'    => array(self::BELONGS_TO, 'Artist', 'artist'),
+        'discs'     => array(self::HAS_MANY, 'Disc', 'album'),
+        'rating'    => array(self::BELONGS_TO, 'Rating', 'rating'),
+        'comments'  => array(self::HAS_MANY, 'Comment', 'album'),
     );
   }
   
   public function scopes() {
+    $alias = $this->getTableAlias();
     return array(
-      'reviewed'  => array(
-                      'condition' => 'alb.rating is not null',
-                      'alias'     => 'alb'),
-      'available' => array(
-                      'condition' => 'alb.available = 1',
-                      'alias'     => 'alb'),
+      "reviewed"  => array(
+          "condition" => "$alias.rating is not null",
+      ),
+      "available" => array(
+          "condition" => "$alias.available = 1",
+      ),
     );
   }
   
-  public function discsForReview() {
-    return $this->discs();
+  public function defaultScope() {
+    return array(
+        "with"    => "rating",
+    );
+  }
+  
+  public function getReviewed() {
+    return $this->rating !== null;
   }
   
   public function highPoints() {
