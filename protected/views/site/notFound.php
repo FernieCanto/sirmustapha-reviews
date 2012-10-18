@@ -1,0 +1,1 @@
+<p>Artist not found! <?=CHtml::link("Click here to go back to the index", array('/'))?></p>

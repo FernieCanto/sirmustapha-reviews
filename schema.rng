@@ -1,0 +1,81 @@
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="updateList">
+      <element name="updateTitle"><text /></element>
+      <element name="updateLink"><text /></element>
+      <element name="updateText"><text /></element>
+      <oneOrMore>
+        <element name="artist">
+          <attribute name="ref"><text /></attribute>
+          <element name="text"><text /></element>
+          <zeroOrMore>
+            <ref name="comment" />
+          </zeroOrMore>
+          <oneOrMore>
+            <element name="album">
+              <attribute name="ref"><text /></attribute>
+              <element name="title"><text /></element>
+              <element name="year"><text /></element>
+              <element name="highpoints"><text /></element>
+              <oneOrMore>
+                <element name="disc">
+                  <optional>
+                    <attribute name="title"><text /></attribute>
+                  </optional>
+                  <oneOrMore>
+                    <element name="track">
+                      <element name="grade">
+                        <choice>
+                          <value>1</value>
+                          <value>2</value>
+                          <value>3</value>
+                          <value>4</value>
+                          <value>5</value>
+                        </choice>
+                      </element>
+                      <element name="title"><text /></element>
+                    </element>
+                  </oneOrMore>
+                </element>
+              </oneOrMore>
+              <element name="review"><text /></element>
+              <element name="rating">
+                <choice>
+                  <value>0</value>
+                  <value>1</value>
+                  <value>2</value>
+                  <value>3</value>
+                  <value>4</value>
+                  <value>5</value>
+                  <value>6</value>
+                  <value>7</value>
+                  <value>8</value>
+                  <value>9</value>
+                  <value>10</value>
+                  <value>11</value>
+                  <value>12</value>
+                  <value>13</value>
+                  <value>14</value>
+                  <value>15</value>
+                </choice>
+              </element>
+              <element name="commentPhrase"><text /></element>
+              <zeroOrMore>
+                <ref name="comment" />
+              </zeroOrMore>
+            </element>
+          </oneOrMore>
+        </element>
+      </oneOrMore>
+    </element>
+  </start>
+  
+  <define name="comment">
+    <element name="comment">
+      <element name="name"><text /></element>
+      <element name="email"><text /></element>
+      <element name="date"><text /></element>
+      <element name="text"><text /></element>
+    </element>
+  </define>
+</grammar>
