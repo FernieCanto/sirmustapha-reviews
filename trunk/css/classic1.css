@@ -1,0 +1,329 @@
+/* Sir Mustapha's Album Reviews, "Classic Blue" CSS style */
+
+/* Generic */
+
+hr {
+ color : #000000;
+}
+
+img {
+ border : none;
+}
+
+body {
+  font-family     : arial, sans-serif;
+  color           : #000000;
+  background-color: #bbeeff;
+}
+
+#siteHeader {
+  border: 1px solid blueviolet;
+  margin: 1em;
+  padding: 1em;
+  background-color: blue;
+}
+
+#siteHeader h1 {
+  color: white;
+  font-size: 28pt;
+  margin: 0.5em;
+}
+
+#siteHeader #subtitle {
+  color: #f0f0F0;
+  font-weight: bold;
+  font-size: 14pt;
+  margin-left: 2em;
+}
+
+h2 {
+  text-align: center;
+  font-size: 26pt;
+  font-weight: bold;
+}
+
+p {
+  text-align : justify;
+  margin-top : 0px;
+}
+
+p span.album {
+  font-weight : bold;
+}
+
+p span.song {
+  font-style: italic;
+}
+
+.good {
+  color : #ff0000;
+}
+
+.bad {
+  color : #0000ff;
+}
+
+a:link, a:visited, a:active {
+  color : #0000cc;
+  text-decoration : underline;
+}
+
+a:hover {
+  color : #ff0000;
+  text-decoration : none;
+}
+
+
+/* Intro page */
+
+#update-old {
+  border : solid;
+  border-color : #ff0000;
+  background-color : #cceedd;
+  padding : 15px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom : 1.5em;
+}
+
+#update-old p {
+  text-align : center;
+  margin-bottom : 0px;
+}
+
+#update-new {
+  border : solid;
+  border-color : #ff0000;
+  background-color : #ddffee;
+  padding : 15px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-bottom : 1.5em;
+}
+
+#update-new p {
+  text-align : center;
+  margin-bottom : 0px;
+}
+
+p.update span.date {
+  font-weight : bold;
+}
+
+p.update span.title {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+#links {
+  margin-left : 25px;
+  border-left : solid;
+  border-color : red;
+  padding-left : 8px;
+}
+
+#links h2 {
+  font-size : 1.8em;
+  font-weight : normal;
+  margin-bottom : 0.5em;
+}
+
+#links a {
+  font-size : 1.2em;
+}
+
+#reviews h2 {
+  font-size : 1.8em;
+  font-weight : normal;
+  margin-bottom : 0.5em;
+}
+
+#reviews div.artist-link a {
+  font-size : 1.1em;
+}
+
+#reviews div.artist-link span.new {
+  font-weight : bold;
+}
+
+#reviews div.albums {
+  margin-left : 10px;
+  font-size : 0.8em;
+}
+
+#reviews div.albums a {
+  text-decoration : none;
+}
+
+#reviews div.albums span.new {
+  font-weight : bold;
+}
+
+#footer {
+  margin-top : 2em;
+}
+
+/* Reviews pages */
+
+#reviewPageHeader {
+  text-align : center;
+  margin-bottom : 1.5em;
+}
+
+#reviewPageHeader h1 {
+  color : #ff0000;
+  font-size : 3em;
+  font-style : italic;
+  font-weight : normal;
+  margin-top : 0px;
+  margin-bottom : 0px;
+}
+
+#reviewPageHeader p.quote {
+  font-size : 1em;
+  font-style : italic;
+  text-align : center;
+  margin-top : 0px;
+  margin-bottom : 0px;
+}
+
+div.relatedArtistHeader {
+  font-size : 2em;
+  text-align : center;
+  border-bottom : solid thin;
+  padding-top : 1em;
+  padding-bottom : 1em;
+  text-decoration : underline;
+}
+
+div.reviewIntro {
+  border-bottom : thin solid;
+}
+
+ul.albumList {
+  margin-bottom : 1em;
+}
+
+ul.albumList li.relatedArtist {
+    margin-top: 1em;
+}
+
+div.albumReview {
+  border-bottom : thin solid;
+}
+
+div.albumReviewHeader {
+  margin-bottom : 1em;
+}
+
+div.albumReviewHeader h2 {
+  font-size : 2em;
+  font-weight : normal;
+  text-decoration : underline;
+  margin-bottom : 0.6em;
+}
+
+div.albumReviewHeader h2.best {
+  font-weight : bold;
+}
+
+div.albumReviewHeader p.highPoints {
+  text-indent  : 0;
+  font-size    : 1.15em;
+  margin-bottom: 1em;
+}
+
+div.albumReviewHeader p.highPoints span.song {
+  font-style: normal;
+  font-size : 1.3em;
+}
+
+div.albumReviewHeader p.trackList {
+  font-size : 1.15em;
+  margin-bottom : 0em;
+}
+
+div.albumReviewHeader p.discTitle {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+div.albumReviewHeader ol {
+  margin : 0px;
+  padding-left : 2.5em;
+}
+
+div.albumReviewBody {
+  margin-bottom : 1.5em;
+}
+
+div.albumReviewRating {
+  margin-left : 3em;
+}
+
+div.albumReviewRating p.ratingHeader {
+  font-size : 1.5em;
+}
+
+div.albumReviewRating span.ratingName {
+  font-size : 1.1em;
+}
+
+div.albumReviewRating span.rating {
+  font-size : 1.1em;
+  font-weight : bold;
+}
+
+div.albumReviewRating p.ratingFinale {
+  font-size : 1.2em;
+}
+
+div.albumComments p.albumCommentsHeader {
+  font-style : italic;
+}
+
+div.comment {
+  margin-left : 3em;
+  margin-bottom: 1em;
+}
+
+div.comment p.commentHeader {
+  font-weight : bold;
+}
+
+div.comment p.commentBody {
+  border-left : solid red;
+  padding-left : 1em;
+}
+
+div.comment p.replyHeader {
+  margin-left : 2em;
+  padding-left : 1em;
+  font-style : italic;
+}
+
+div.comment div.replyBody {
+  border-left : solid green;
+  margin-left : 2em;
+  padding-left : 1em;
+}
+
+div.footer {
+  margin-top : 1em;
+}
+
+/* Ratings page */
+
+div.rating {
+  border-bottom: 2px dashed black;
+  margin-bottom: 10px;
+}
+
+p.image {
+  margin-bottom: 0;
+}
+
+p.rating {
+  font-size: 16pt;
+  font-weight: bold;
+}

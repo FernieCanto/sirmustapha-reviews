@@ -1,0 +1,1 @@
+<p>Import successful. <?=CHtml::link('Click here to import again', array('management/import'))?></p>
