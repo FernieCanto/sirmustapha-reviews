@@ -17,8 +17,8 @@ return array(
     'db'          => array(
                       'class'             => 'CDbConnection',
                       'connectionString'  => 'mysql:host=localhost;dbname=reviews;',
-                      'username'          => 'reviews',
-                      'password'          => 'kraftwerk',
+                      'username'          => 'root',
+                      'password'          => '',
                       'emulatePrepare'    => true,
                      ),
                    ),

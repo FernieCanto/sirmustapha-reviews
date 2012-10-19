@@ -5,7 +5,7 @@ class SiteUpdate extends CActiveRecord {
   }
   
   public function tableName() {
-    return 'siteupdate';
+    return 'siteupdates';
   }
   
   public function relations() {

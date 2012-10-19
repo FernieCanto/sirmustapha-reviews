@@ -1,0 +1,19 @@
+{
+  "updateTitle" : "Pink Floyd",
+  "updateLink"  : "http://sirmustapha.0sites.org/reviews.php?a=floyd",
+  "updateText"  : "Update text goes here",
+  "artists"     : [
+    {
+      "name"      : "Pink Floyd",
+      "reference" : "floyd",
+      "text"      : "",
+      "comments"  : [],
+      "albums"    : [
+        {
+          "title"   : "Piper at the Gates of Dawn",
+          "
+        }
+      ]
+    }
+  ]
+}
