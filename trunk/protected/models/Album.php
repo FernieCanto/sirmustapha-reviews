@@ -26,10 +26,11 @@ class Album extends CActiveRecord {
   
   public function relations() {
     return array(
-        'artist'    => array(self::BELONGS_TO, 'Artist', 'artist'),
-        'discs'     => array(self::HAS_MANY, 'Disc', 'album'),
-        'rating'    => array(self::BELONGS_TO, 'Rating', 'rating'),
-        'comments'  => array(self::HAS_MANY, 'Comment', 'album'),
+        'artist'      => array(self::BELONGS_TO, 'Artist', 'artist'),
+        'discs'       => array(self::HAS_MANY, 'Disc', 'album'),
+        'rating'      => array(self::BELONGS_TO, 'Rating', 'rating'),
+        'comments'    => array(self::HAS_MANY, 'Comment', 'album'),
+        'updateItem'  => array(self::HAS_ONE, "UpdatedItem", "album"),
     );
   }
   
