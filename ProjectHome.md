@@ -1,0 +1,1 @@
+This is a project for a music reviews website, allowing management of published reviews and reader comments.
